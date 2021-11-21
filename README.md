@@ -10,10 +10,10 @@ For more information, see this article:
 
 # Demo
 
-See the following PRs for this repo, which demonstrate the detection of malicious unicode that were attempted to be merged into `master` from the `mallory` branch
+See the following PRs for this repo, which demonstrate the detection of malicious unicode that were attempted to be merged into `main` from user-contributed, malicious branches
 
- * TODO: commenting-out.py
- * TODO: homoglyph-function.py
+ * https://github.com/maltfield/detect-malicious-unicode/pull/1
+ * https://github.com/maltfield/detect-malicious-unicode/pull/2
 
 The comments in the PRs were made by the following GitHub Actions workflow:
 
