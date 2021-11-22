@@ -3,12 +3,12 @@
 Demonstrates GitHub Actions workflow for Detecting (Malicious) Unicode in GitHub PRs
 
 <p align="center">
-  <a href="https://tech.michaelaltfield.net/bidi-unicode-github-defence/"><img src="bidi-unicode-github-defence_featuredImage2.jpg?raw=true" alt="Detecting Malicious Unicode in GitHub Pull Requests"/></a>
+  <a href="https://tech.michaelaltfield.net/bidi-unicode-github-defense/"><img src="bidi-unicode-github-defense_featuredImage2.jpg?raw=true" alt="Detecting Malicious Unicode in GitHub Pull Requests"/></a>
 </p>
 
 For more information, see this article:
 
- *  https://tech.michaelaltfield.net/bidi-unicode-github-defence/
+ *  https://tech.michaelaltfield.net/bidi-unicode-github-defense/
 
 # Demo
 
