@@ -25,7 +25,7 @@ The comments in the PRs were made by the following GitHub Actions workflow:
 
 The following GitHub CI workflows have been integrated into other projects' GitHub repos to detect malicious unicode characters
 
- * TODO: Buskill
+ * [BusKill](https://github.com/BusKill/buskill-app/blob/c764ea7fd649f0f576e68ba9272cd8b3ed36f167/.github/workflows/unicode_warn.yml)
 
 # License
 
