@@ -40,6 +40,8 @@ jobs:
       id: unicode_diff
       run: |
         set -x
+        git config --global --add safe.directory .
+        git config --global --add safe.directory /__w/detect-malicious-unicode/detect-malicious-unicode
         git branch -a
         git log
         diff=`git diff --unified=0 ${{ github.event.pull_request.base.sha }} ${{ github.event.pull_request.head.sha }} | grep -E "^[+]" | grep -Ev '^(--- a/|\+\+\+ b/)'`
