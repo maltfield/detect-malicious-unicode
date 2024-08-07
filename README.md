@@ -30,3 +30,4 @@ The following GitHub CI workflows have been integrated into other projects' GitH
 # License
 
 The contents of this repo are dual-licensed. All code is GPLv3 and all other content is CC-BY-SA.
+
