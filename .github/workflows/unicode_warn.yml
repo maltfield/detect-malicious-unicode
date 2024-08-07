@@ -4,12 +4,14 @@
 # Purpose: Detects Unicode in PRs and comments the results of findings in PR
 # Authors: Michael Altfield <michael@michaelaltfield.net>
 # Created: 2021-11-20
-# Updated: 2024-08-06
+# Updated: 2024-08-07
 ################################################################################
 name: malicious_sanity_checks
  
 # execute this workflow automatically on all PRs
-on: [pull_request]
+on:
+  pull_request_target:
+    types: [opened, edited, synchronize, reopened, unlocked]
  
 jobs:
  
