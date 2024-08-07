@@ -6,6 +6,7 @@
 # Created: 2021-11-20
 # Updated: 2024-08-07
 ################################################################################
+# in main branch
 name: malicious_sanity_checks
  
 # execute this workflow automatically on all PRs
@@ -21,8 +22,6 @@ jobs:
     container: debian:bullseye-slim
 
     steps:
-      issues: write
-      pull-requests: write
  
     - name: Prereqs
       env:
