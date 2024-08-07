@@ -21,6 +21,10 @@ jobs:
     runs-on: ubuntu-latest
     container: debian:bullseye-slim
 
+    permissions:
+      issues: write
+      pull-requests: write
+
     steps:
  
     - name: Prereqs
