@@ -20,8 +20,6 @@ jobs:
     runs-on: ubuntu-latest
     container: debian:bullseye-slim
 
-    permissions: debian:bullseye-slim
- 
     steps:
       issues: write
       pull-requests: write
