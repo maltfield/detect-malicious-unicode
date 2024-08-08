@@ -31,6 +31,15 @@ jobs:
       env:
         GITHUB_CONTEXT: ${{ toJSON(github) }}
       run: echo "$GITHUB_CONTEXT"
+ 
+    - name: Prereqs
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        apt-get update
+        apt-get install -y git bsdmainutils gh
+        git clone "https://token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" .
+      shell: bash
 
     - name: Get link to this run
       run: |
@@ -41,15 +50,6 @@ jobs:
           --jq .workflow_id)
         RUN_URL=https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}/job/${workflow_id}
         echo "RUN_URL=${RUN_URL}" >> $GITHUB_ENV
-      shell: bash
- 
-    - name: Prereqs
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      run: |
-        apt-get update
-        apt-get install -y git bsdmainutils
-        git clone "https://token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" .
       shell: bash
  
     - name: Check diff for unicode
