@@ -37,17 +37,18 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
         apt-get update
-        apt-get install -y git bsdmainutils gh
+        apt-get install -y git bsdmainutils
         git clone "https://token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" .
       shell: bash
 
     - name: Get link to this run
       run: |
-        workflow_id=$(gh api \
+        # https://stackoverflow.com/a/75734917
+        workflow_id=$(curl -L \
           -H "Accept: application/vnd.github+json" \
+          -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}"\
           -H "X-GitHub-Api-Version: 2022-11-28" \
-          /repos/${{ github.repository }}/actions/runs/${{ github.run_id }} \
-          --jq .workflow_id)
+          https://api.github.com/repos/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}/attempts/${GITHUB_RUN_ATTEMPT}/jobs | jq .jobs[].id )
         RUN_URL=https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}/job/${workflow_id}
         echo "RUN_URL=${RUN_URL}" >> $GITHUB_ENV
       shell: bash
