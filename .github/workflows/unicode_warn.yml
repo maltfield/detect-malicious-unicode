@@ -1,6 +1,6 @@
 ################################################################################
 # File:    .github/workflows/unicode_warn.yml
-# Version: 0.3
+# Version: 0.4
 # Purpose: Detects Unicode in PRs and comments the results of findings in PR
 # Authors: Michael Altfield <michael@michaelaltfield.net>
 # Created: 2021-11-20
@@ -26,6 +26,11 @@ jobs:
       pull-requests: write
 
     steps:
+
+    - name: Dump GitHub context
+      env:
+        GITHUB_CONTEXT: ${{ toJSON(github) }}
+      run: echo "$GITHUB_CONTEXT"
  
     - name: Prereqs
       env:
@@ -43,6 +48,9 @@ jobs:
         set -x
         git config --global --add safe.directory .
         git config --global --add safe.directory "$(pwd)"
+        git branch -a
+        git log
+        git checkout ${{ github.event.pull_request.head.ref }}
         git branch -a
         git log
 
