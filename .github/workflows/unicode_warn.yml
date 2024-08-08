@@ -1,6 +1,6 @@
 ################################################################################
 # File:    .github/workflows/unicode_warn.yml
-# Version: 0.5
+# Version: 0.6
 # Purpose: Detects Unicode in PRs and comments the results of findings in PR
 # Authors: Michael Altfield <michael@michaelaltfield.net>
 # Created: 2021-11-20
@@ -62,7 +62,8 @@ jobs:
         git config --global --add safe.directory "$(pwd)"
         git branch -a
         git log
-        git checkout ${{ github.event.pull_request.head.ref }}
+        git fetch origin refs/pull/${{ github.event.number }}/head:this_pr
+        git checkout this_pr
         git branch -a
         git log
 
