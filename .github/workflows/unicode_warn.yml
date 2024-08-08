@@ -58,6 +58,7 @@ jobs:
         if [ $? -ne 0 ]; then
           # there was an error in the diff
           human_result="WARNING: git diff failed!"
+          echo "UNICODE_HUMAN_RESULT=${human_result}" >> $GITHUB_ENV
           echo "${human_result}"
           exit 1
         fi
@@ -70,6 +71,7 @@ jobs:
         if [ $? -ne 0 ]; then
           # there was an error in the hexdump
           human_result="WARNING: hexdump failed!"
+          echo "UNICODE_HUMAN_RESULT=${human_result}" >> $GITHUB_ENV
           echo "${human_result}"
           exit 1
         fi
@@ -114,7 +116,7 @@ jobs:
     - name: Exit with or without error
       run: |
 
-        if [[ "${{ env.UNICODE_HUMAN_RESULT }}" | grep -i "WARNING" ]]; then
+        if [[ "${{ env.UNICODE_HUMAN_RESULT }}" | grep -Ei "ERROR|WARNING" ]]; then
           exit 1
         else
           exit 0
